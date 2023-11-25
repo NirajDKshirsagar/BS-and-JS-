@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .invalid-field {
+            border: 2px solid red;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container form-container">
+        <form action="#" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="inName">Name:</label>
+                <input type="text" class="form-control invalid-field" id="inName" onclick="removeRedBorder('inName')">
+                <span id="errname" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="inEmail">Email:</label>
+                <input type="email" class="form-control invalid-field" id="inEmail" onclick="removeRedBorder('inEmail')">
+                <span id="erremail" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="inWebsite">Website:</label>
+                <input type="text" class="form-control invalid-field" id="inWebsite" onclick="removeRedBorder('inWebsite')">
+                <span id="errwebsite" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="inMsg">Message:</label>
+                <textarea name="mes" id="inMsg" class="form-control invalid-field" rows="3" onclick="removeRedBorder('inMsg')"></textarea>
+                <span id="errmsg" class="error-message"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("inName").value;
+            const email = document.getElementById("inEmail").value;
+            const website = document.getElementById("inWebsite").value;
+            const msg = document.getElementById("inMsg").value;
+
+            let isValid = true;
+
+            if (name === "") {
+                document.getElementById("errname").innerHTML = "This field is required";
+                addRedBorder('inName');
+                isValid = false;
+            }
+
+            if (email === "") {
+                document.getElementById("erremail").innerHTML = "A valid Email is required";
+                addRedBorder('inEmail');
+                isValid = false;
+            } else if (email.indexOf("@") === -1) {
+                document.getElementById("erremail").innerHTML = "A valid Email is invalid";
+                addRedBorder('inEmail');
+                isValid = false;
+            }
+
+            if (website === "") {
+                document.getElementById("errwebsite").innerHTML = "A valid URL is required";
+                addRedBorder('inWebsite');
+                isValid = false;
+            } else if (website.indexOf(".") === -1) {
+                document.getElementById("errwebsite").innerHTML = "A valid URL is invalid";
+                addRedBorder('inWebsite');
+                isValid = false;
+            }
+
+            if (msg === "") {
+                document.getElementById("errmsg").innerHTML = "This field is required";
+                addRedBorder('inMsg');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function addRedBorder(elementId) {
+            document.getElementById(elementId).classList.add('invalid-field');
+        }
+
+        function removeRedBorder(elementId) {
+            document.getElementById(elementId).classList.remove('invalid-field');
+        }
+    </script>
+</body>
+
+</html>
