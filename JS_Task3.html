@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .calculator-container {
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            padding: 20px;
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-input {
+            margin-bottom: 15px;
+        }
+
+        .calculate-btn {
+            width: 100px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h2 class="text-center mb-4">Number Calculator</h2>
+
+        <div class="form-input">
+            <label for="typeInput1">Enter the First Number:</label>
+            <input type="number" class="form-control" id="typeInput1">
+        </div>
+
+        <div class="form-input">
+            <label for="typeInput2">Enter the Second Number:</label>
+            <input type="number" class="form-control" id="typeInput2">
+        </div>
+
+        <button class="btn btn-primary calculate-btn" onclick="performCalculation('multiply')">Multiply</button>
+        <button class="btn btn-primary calculate-btn" onclick="performCalculation('divide')">Divide</button>
+
+        <h3 class="result">The Result is: <span id="result"></span></h3>
+    </div>
+
+    <script>
+        function performCalculation(operation) {
+            let a = parseFloat(document.getElementById('typeInput1').value);
+            let b = parseFloat(document.getElementById('typeInput2').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+            } else {
+                document.getElementById("result").innerHTML = (operation === 'multiply') ? a * b : a / b;
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
