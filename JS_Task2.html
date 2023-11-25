@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Sorter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .calculation {
+            border: 2px solid #333;
+            width: 40%;
+            padding: 15px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        input {
+            height: 25px;
+            width: 150px;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+
+        button {
+            height: 30px;
+            width: 60px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #answer {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculation">
+        <h3>Example String:</h3>
+        <input type="text" id="typeInput">
+        <button onclick="press()">Sort</button>
+        <h3>Expected Output:</h3>
+        <p id="answer"></p>
+    </div>
+
+    <script>
+        function press() {
+            let inputString = document.getElementById('typeInput').value;
+
+            function sortString(input) {
+                return input.split('').sort().join('');
+            }
+
+            document.getElementById("answer").innerHTML = sortString(inputString);
+        }
+    </script>
+</body>
+
+</html>
