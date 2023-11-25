@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Reverser</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number Reverser</h1>
+    <label for="inputUser">Enter a Number: </label>
+    <input id="inputUser" type="number">
+    <button id="reverseBtn">Reverse</button>
+    <h1 id="result"></h1>
+
+    <script>
+        document.getElementById('reverseBtn').addEventListener('click', () => {
+            let userInput = document.getElementById('inputUser').value;
+
+            const reverseNumber = (number) => parseInt(String(number)
+                .split("")
+                .reverse()
+                .join(""), 10);
+
+            document.getElementById('result').innerHTML = reverseNumber(userInput);
+        });
+    </script>
+</body>
+
+</html>
