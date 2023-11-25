@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Task 7</title>
+    <style>
+        #output {
+            height: 50px;
+            width: 50px;
+            padding-top: 50px;
+            position: relative;
+            animation: moveAnimation 10s infinite;
+            animation-play-state: paused;
+        }
+
+        #train {
+            height: 30px;
+            width: 120px;
+            background-color: #73da73; /* Green color */
+            position: relative;
+            animation: trainAnimation 5s linear infinite;
+            animation-play-state: paused;
+        }
+
+        h1 {
+            color: #2b197b;
+        }
+
+        @keyframes moveAnimation {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        @keyframes trainAnimation {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output"><img src="JS_7.png" alt=""></div>
+    <div class="container" style="padding-top: 200px;">
+        <center>
+            <h1>Click the following buttons to handle the animation</h1>
+            <button style='height:25px;width:70px; background-color: #c2c8c2; color: #272626;' onclick="startAnimation()">Start</button>
+            <button style='height:25px;width:70px; background-color: #c2c8c2; color: #272626;' onclick="pauseAnimation()">Pause</button>
+        </center>
+    </div>
+    <script>
+        function startAnimation() {
+            var outputElement = document.getElementById("output");
+            var trainElement = document.getElementById("train");
+
+            outputElement.style.animationPlayState = "running";
+            trainElement.style.animationPlayState = "running";
+        }
+
+        function pauseAnimation() {
+            var outputElement = document.getElementById("output");
+            var trainElement = document.getElementById("train");
+
+            outputElement.style.animationPlayState = "paused";
+            trainElement.style.animationPlayState = "paused";
+        }
+    </script>
+</body>
+
+</html>
